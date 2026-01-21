@@ -1,0 +1,143 @@
+/* DiscussionGuide 전용 스타일 - 원본 CSS 적용 */
+
+body.discussion-page {
+  background: #1350bc !important;
+}
+
+body.discussion-page * {
+  color: #fff;
+}
+
+body.discussion-page .wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 540px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  transition: all 1s;
+}
+
+body.discussion-page .wrap::before {
+  content: '';
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #fff;
+  transition: all 1s;
+  opacity: 1;
+  z-index: 1;
+}
+
+body.discussion-page .wrap::after {
+  content: '';
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  width: 213px;
+  height: 170px;
+  transform: translate(-50%, -50%);
+  background: url('/fishermen.png') no-repeat center;
+  background-size: 100%;
+  transition: all 1s;
+  opacity: 1;
+  z-index: 1;
+}
+
+body.discussion-page .wrap.on::before,
+body.discussion-page .wrap.on::after {
+  transition: all 1s;
+  opacity: 0;
+  z-index: -1;
+}
+
+body.discussion-page .header {
+  width: 100%;
+}
+
+body.discussion-page .header_top {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px;
+}
+
+body.discussion-page .title {
+  padding: 10px 20px;
+  text-align: center;
+  color: #1350bc;
+  background: #fff;
+  font-weight: bold;
+  font-size: 24px;
+  font-style: italic;
+  font-family: "paper-L";
+}
+
+body.discussion-page .discussion_wrap {
+  padding: 16px;
+  text-align: center;
+}
+
+body.discussion-page .discussion_title {
+  margin-bottom: 6px;
+  font-size: 22px;
+  font-weight: 400;
+}
+
+body.discussion-page .bible_passage {
+  margin-bottom: 6px;
+}
+
+body.discussion-page .discussion_title,
+body.discussion-page .bible_passage,
+body.discussion-page .bible_preacher {
+  white-space: pre-wrap;
+}
+
+body.discussion-page .content_wrap {
+  padding: 10px 16px;
+}
+
+body.discussion-page .content_wrap h4 {
+  margin-bottom: 10px;
+  white-space: pre-wrap;
+}
+
+body.discussion-page .content_wrap p {
+  margin-bottom: 20px;
+  white-space: pre-wrap;
+}
+
+body.discussion-page .sharing_wrap h4 {
+  padding: 0 16px;
+  margin-bottom: 10px;
+}
+
+body.discussion-page .sharing_wrap .sharing_question {
+  position: relative;
+  padding: 10px 16px 10px 28px;
+  background-color: #fff;
+  color: #1350bc;
+}
+
+body.discussion-page .sharing_wrap .sharing_question::before {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 16px;
+  top: 16px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #1350bc;
+}
+
+body.discussion-page .footer .logo {
+  width: 200px;
+}
+
+body.discussion-page .copyright {
+  padding-bottom: 40px;
+}
