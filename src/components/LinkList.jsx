@@ -9,14 +9,16 @@ function LinkList({ data, onItemClick }) {
     setIsExpanded(!isExpanded);
   };
 
-  const visibleData = isExpanded ? data : data.slice(0, VISIBLE_COUNT);
   const showToggleButton = data.length > VISIBLE_COUNT;
 
   return (
     <>
       <ul className="list_link" id="data-list">
-        {visibleData.map((item, index) => (
-          <li key={index} className="item_link">
+        {data.map((item, index) => (
+          <li 
+            key={index} 
+            className={`item_link ${index >= VISIBLE_COUNT ? (isExpanded ? 'expanded' : 'collapsed') : ''}`}
+          >
             <button className="button" onClick={() => onItemClick(item)}>
               <img src={item.imageSrc} alt={item.category} />
               {item.title}

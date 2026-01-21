@@ -13,13 +13,30 @@
 .item_sns {width: 8%;}
 .item_sns a {display: flex; justify-content: center; align-items: center;}
 
-.list_link {display: flex; flex-direction: column; gap: 10px; margin-top: 20px;}
+.list_link {display: flex; flex-direction: column; margin-top: 20px;}
 
 .item_link {
     overflow: hidden;
     max-height: 120px;
     opacity: 1;
-    transition: max-height 0.35s ease, opacity 0.25s ease;
+    margin-bottom: 10px;
+    transition: max-height 0.4s ease, opacity 0.3s ease, margin 0.4s ease;
+}
+
+.item_link:last-child {
+    margin-bottom: 0;
+}
+
+.item_link.collapsed {
+    max-height: 0;
+    opacity: 0;
+    margin-bottom: 0;
+}
+
+.item_link.expanded {
+    max-height: 120px;
+    opacity: 1;
+    margin-bottom: 10px;
 }
 
 .item_link .button {position: relative; display: flex; align-items: center; gap: 20px; width: 100%; padding: 10px 30px 10px 10px; border: 2px solid #000; border-radius: 100px; background-color: transparent; font-size: 16px; font-weight: bold; text-align: left;}
