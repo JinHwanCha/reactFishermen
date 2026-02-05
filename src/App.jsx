@@ -38,7 +38,7 @@ function App() {
         <LinkList data={data} onItemClick={handleOpenPopup} />
         <Calendar />
         <Footer />
-        <p className="copyright">© 2025 Fishremen. All rights reserved.</p>
+        <p className="copyright">© 2026 Fishremen. All rights reserved.</p>
       </div>
       {popupData && <Popup data={popupData} onClose={handleClosePopup} />}
     </>
