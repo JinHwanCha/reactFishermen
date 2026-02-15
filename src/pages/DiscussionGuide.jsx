@@ -87,7 +87,7 @@ function DiscussionGuide() {
           <img src="/fishermen_logo.svg" alt="logo" />
         </h1>
       </div>
-      <p className="copyright">© 2025 Fishremen. All rights reserved.</p>
+      <p className="copyright">© 2026 Fishremen. All rights reserved.</p>
     </div>
   );
 }
