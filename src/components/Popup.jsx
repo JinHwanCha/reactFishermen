@@ -1,7 +1,16 @@
+import { usePopupImages } from '../hooks/usePopupImages';
+import PopupImageSlider from './PopupImageSlider';
+
 function Popup({ data, onClose }) {
   if (!data) return null;
 
   const isLinkDisabled = data.closeLink === "TRUE";
+  const { images: extraImages } = usePopupImages(data.title);
+
+  const sliderImages = [
+    ...(data.contentImg ? [data.contentImg] : []),
+    ...extraImages.map((img) => img.image_url),
+  ];
 
   return (
     <div className="dim" onClick={onClose}>
@@ -19,18 +28,7 @@ function Popup({ data, onClose }) {
           </li>
         </ul>
         <div className="content">
-          {data.contentImg && (
-            <img 
-              src={data.contentImg} 
-              alt={data.title} 
-              style={{ 
-                width: '100%', 
-                maxWidth: '400px', 
-                marginBottom: '10px',
-                borderRadius: '10px'
-              }} 
-            />
-          )}
+          <PopupImageSlider images={sliderImages} />
           <pre>{data.content}</pre>
         </div>
         <div className="link_wrap">

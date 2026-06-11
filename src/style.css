@@ -124,6 +124,19 @@
 .leader_list {display: flex; gap: 20px;margin-top: 10px; padding-bottom: 10px; font-size: 12px; border-bottom: 2px solid #000;}
 .content {max-height: 50vh; overflow-y: auto; margin: 10px 0 20px; font-size: 10px;}
 .content pre {white-space: pre-wrap;}
+
+/* Popup image slider */
+.popup_slider {margin-bottom: 12px;}
+.popup_slider_viewport {position: relative; width: 100%; max-width: 400px; margin: 0 auto; overflow: hidden; border-radius: 10px; background: #f1f2f5;}
+.popup_slider_track {display: flex; width: 100%; transition: transform 0.35s ease;}
+.popup_slider_slide {flex: 0 0 100%; display: flex; justify-content: center; align-items: center;}
+.popup_slider_slide img {display: block; width: 100%; height: auto; object-fit: cover;}
+.popup_slider_btn {position: absolute; top: 50%; transform: translateY(-50%); width: 32px; height: 32px; padding: 0; background: rgba(0,0,0,0.45); color: #fff; border: none; border-radius: 50%; font-size: 20px; line-height: 1; cursor: pointer;}
+.popup_slider_btn_prev {left: 8px;}
+.popup_slider_btn_next {right: 8px;}
+.popup_slider_dots {display: flex; justify-content: center; gap: 6px; margin-top: 8px;}
+.popup_slider_dot {width: 6px; height: 6px; padding: 0; background: #ccc; border: none; border-radius: 50%; cursor: pointer;}
+.popup_slider_dot.active {background: #0E4EB1;}
 .link_wrap {display: flex; justify-content: center; }
 .link {display: flex; justify-content: center; align-content: center; padding: 10px 20px; font-size: 12px; background-color: #000; color: #fff; border-radius: 50px; text-decoration: none;}
 .link.disabled {background-color: #999; color: #000; pointer-events: none;}
