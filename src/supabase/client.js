@@ -11,5 +11,5 @@ if (!supabaseUrl || !supabaseAnonKey) {
 
 export const supabase = createClient(supabaseUrl ?? '', supabaseAnonKey ?? '');
 
-export const POPUP_IMAGES_BUCKET = 'popup-images';
+export const POPUP_IMAGES_BUCKET = 'post-images';
 export const POPUP_IMAGES_TABLE = 'popup_images';
