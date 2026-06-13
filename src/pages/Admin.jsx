@@ -55,6 +55,14 @@ function sanitizeFileName(name) {
   return `${base || 'img'}${ext}`;
 }
 
+function slugifyTitle(title) {
+  let hash = 0;
+  for (let i = 0; i < title.length; i++) {
+    hash = (hash * 31 + title.charCodeAt(i)) >>> 0;
+  }
+  return `t_${hash.toString(36)}`;
+}
+
 function AdminItem({ item, allImages, onChanged }) {
   const [uploading, setUploading] = useState(false);
   const [error, setError] = useState('');
@@ -76,7 +84,7 @@ function AdminItem({ item, allImages, onChanged }) {
     try {
       for (let i = 0; i < files.length; i++) {
         const file = files[i];
-        const path = `${encodeURIComponent(item.title)}/${Date.now()}_${i}_${sanitizeFileName(
+        const path = `${slugifyTitle(item.title)}/${Date.now()}_${i}_${sanitizeFileName(
           file.name
         )}`;
 
