@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 function PopupImageSlider({ images }) {
   const [index, setIndex] = useState(0);
+  const dragStart = useRef(null);
 
   useEffect(() => {
     setIndex(0);
@@ -13,9 +14,31 @@ function PopupImageSlider({ images }) {
   const goPrev = () => setIndex((i) => (i - 1 + total) % total);
   const goNext = () => setIndex((i) => (i + 1) % total);
 
+  const THRESHOLD = 50;
+
+  const handlePointerDown = (e) => {
+    dragStart.current = e.clientX ?? e.touches?.[0]?.clientX;
+  };
+
+  const handlePointerUp = (e) => {
+    if (dragStart.current === null) return;
+    const endX = e.clientX ?? e.changedTouches?.[0]?.clientX;
+    const diff = dragStart.current - endX;
+    if (diff > THRESHOLD) goNext();
+    else if (diff < -THRESHOLD) goPrev();
+    dragStart.current = null;
+  };
+
   return (
     <div className="popup_slider">
-      <div className="popup_slider_viewport">
+      <div
+        className="popup_slider_viewport"
+        onMouseDown={handlePointerDown}
+        onMouseUp={handlePointerUp}
+        onTouchStart={handlePointerDown}
+        onTouchEnd={handlePointerUp}
+        style={{ userSelect: 'none' }}
+      >
         <div
           className="popup_slider_track"
           style={{ transform: `translateX(-${index * 100}%)` }}
